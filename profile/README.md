@@ -12,7 +12,7 @@
     <a href="https://www.lucebox.com"><img alt="Website" src="https://img.shields.io/badge/website-lucebox.com-000?style=for-the-badge" /></a>
     <a href="https://x.com/luceboxai"><img alt="X" src="https://img.shields.io/badge/follow-@luceboxai-1DA1F2?style=for-the-badge&logo=x" /></a>
     <a href="https://discord.gg/yHfswqZmJQ"><img alt="Discord" src="https://img.shields.io/badge/chat-discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" /></a>
-    <a href="mailto:davide@lucebox.com"><img alt="Email" src="https://img.shields.io/badge/email-davide%40lucebox.com-D14836?style=for-the-badge&logo=gmail&logoColor=white" /></a>
+    <a href="mailto:davide@lucebox.com"><img alt="Email" src="https://img.shields.io/badge/contact-us-D14836?style=for-the-badge&logo=gmail&logoColor=white" /></a>
   </p>
 </div>
 
@@ -40,14 +40,13 @@ The speed comes from this org. **lucebox-hub** is the open inference engine: cus
 | [**lucebox-hub**](https://github.com/Luce-Org/lucebox-hub) | Fast LLM speculative inference server for consumer hardware. DFlash + PFlash + Megakernel. OpenAI/Anthropic compatible HTTP server. | ![Stars](https://img.shields.io/github/stars/Luce-Org/lucebox-hub?style=flat-square&label=) | ![Forks](https://img.shields.io/github/forks/Luce-Org/lucebox-hub?style=flat-square&label=) |
 | [**llama.cpp-dflash-ggml**](https://github.com/Luce-Org/llama.cpp-dflash-ggml) | llama.cpp fork with DFlash speculative decode and ggml DDTree integration. Upstream-tracking. | ![Stars](https://img.shields.io/github/stars/Luce-Org/llama.cpp-dflash-ggml?style=flat-square&label=) | ![Forks](https://img.shields.io/github/forks/Luce-Org/llama.cpp-dflash-ggml?style=flat-square&label=) |
 
-### Components inside lucebox-hub
+### Lucebox Inference Optimizations
 
 | Component | What it does | Speedup |
 |-----------|--------------|---------|
 | **DFlash** | Speculative decode with draft model + tree verification (DDTree) | 3 to 5x on 27B |
 | **PFlash** | Block-sparse speculative prefill, register-resident FA-2 kernels | ~5.6x on long context, 5.4x at 128K |
 | **Megakernel** | Fused 24-layer persistent CUDA kernel for small drafts | ~2x on 0.8B (413 tok/s) |
-| **KVFlash** | Per-head distinct-stride landmark KV compression | +11% tok/s on HE-128 |
 
 ## Quick Start
 
@@ -73,13 +72,14 @@ Then point any OpenAI-compatible client at `http://localhost:8000/v1`.
 | Qwen3.6-27B Q4_K_M | RTX 3090 | 134 tok/s @ 128K | PFlash sliding target_feat |
 | Laguna-XS.2 33B | RTX 3090 | 5.4x @ 128K | PFlash |
 | Qwen3.5-0.8B | RTX 3090 | 413 tok/s | bf16 Megakernel |
-| Qwen3.5 122B-A10B UD-Q4_K_XL | Strix Halo | 22.6 tok/s | Vulkan RADV |
+| gfx1151 iGPU (Strix Halo) | Ryzen AI MAX+ 395 | 26.85 tok/s | HIP, 2.23x vs llama.cpp HIP |
 
 ## Supported Hardware
 
 * **NVIDIA:** RTX 3090, RTX 4090, RTX 5090, RTX 2080 Ti (CUDA 12+)
-* **AMD:** Ryzen AI MAX+ 395 Strix Halo (Vulkan + ROCm 6+), RX 7900 XTX (HIP)
-* **OS:** Linux, macOS (CPU/Metal partial)
+* **AMD:** Ryzen AI MAX+ 395 Strix Halo (HIP / ROCm 6+), RX 7900 XTX (HIP)
+* **OS (inference engine):** Linux, Windows
+* **OS (Lucebox appliance):** Linux, pre-tuned
 
 ## Buy the Hardware
 
@@ -100,10 +100,6 @@ The plug-and-play Lucebox ships pre-tuned with the full stack loaded. $4,900, on
 * [AMD Strix Halo Notes](https://www.lucebox.com/blog/amd)
 * [eGPU Myth](https://www.lucebox.com/blog/egpu-myth)
 * [Issue Tracker](https://github.com/Luce-Org/lucebox-hub/issues)
-
-## Team
-
-Built in Italy by [Sandro](https://x.com/pupposandro) and [Davide](https://x.com/davideciffa). PRs, issues, and benchmark reports on other hardware are welcome.
 
 <p align="center">
   <a href="https://www.lucebox.com">Website</a> •
