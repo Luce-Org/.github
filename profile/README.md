@@ -1,7 +1,7 @@
 <div align="center">
   <img src="https://www.lucebox.com/lucebox-logo.png" alt="Lucebox" width="160" />
 
-  <h3>The Personal Computer for AI Agents</h3>
+  <h3>The Inference Computer for AI Agents</h3>
 
   <p>
     Lucebox builds plug-and-play hardware and the open inference stack that powers it.
