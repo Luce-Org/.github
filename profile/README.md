@@ -5,7 +5,7 @@
 
   <p>
     Lucebox builds plug-and-play hardware and the open inference stack that powers it.
-    Local-first, OpenAI/Anthropic-compatible, 4 to 6x faster than competing boxes at the same price.
+    Local-first, OpenAI/Anthropic-compatible, 3 to 5x faster than competing boxes at the same price.
   </p>
 
   <p>
@@ -20,14 +20,14 @@
 
 ## What is Lucebox
 
-Lucebox is a 9.56L aluminum box that runs frontier open models locally at speeds people thought needed cloud GPUs. Inside: an RTX 3090 (24GB GDDR6X) paired with an AMD Ryzen AI MAX+ 395 APU (128GB unified LPDDR5X), 2TB NVMe, Corsair 750W 80+ Gold. Outside: a single power cable and an OpenAI/Anthropic-compatible endpoint reachable from Claude Code, Codex, OpenCode, Hermes, OpenClaw, Open WebUI, and Ollama in roughly one minute from unboxing.
+Lucebox is a 9.56L aluminum box that runs frontier open models locally at speeds people thought needed cloud GPUs. Inside: an RTX 3090 (24GB GDDR6X) paired with an AMD Ryzen AI MAX+ 395 APU (128GB unified LPDDR5X), 2TB NVMe, Corsair 1000W 80+ Gold. Outside: a single power cable and an OpenAI/Anthropic-compatible endpoint reachable from Claude Code, Codex, OpenCode, Hermes, OpenClaw, Open WebUI, and Ollama in roughly one minute from unboxing.
 
-The speed comes from this org. **lucebox-hub** is the open inference engine: custom CUDA kernels, speculative decoding (DFlash), speculative prefill compression (PFlash), and persistent megakernels. It runs on any RTX 30/40/50, on Strix Halo, and on Radeon 7900 XTX, not just on our hardware.
+The speed comes from this org. **lucebox** is the open inference engine: custom CUDA kernels, speculative decoding (DFlash), speculative prefill compression (PFlash), and persistent megakernels. It runs on any RTX 30/40/50, on Strix Halo, and on Radeon 7900 XTX, not just on our hardware.
 
 ## Why local
 
 * **Privacy.** Prompts and weights never leave the device. Default-fit for legal, medical, finance, and any team where the data is the moat.
-* **Cost.** $4,900 once, then zero per token. Replaces $200 to $2,000 per month in cloud API spend for sustained agent workloads.
+* **Cost.** $5,499 once, then zero per token. Replaces $200 to $2,000 per month in cloud API spend for sustained agent workloads.
 * **Throughput.** Up to 207 tok/s on Qwen3.5-27B and 134 tok/s at 128K context, matching or beating cloud latency on a desk.
 * **Open.** Apache 2.0 inference stack, GGUF models, no vendor lock-in.
 
@@ -37,8 +37,7 @@ The speed comes from this org. **lucebox-hub** is the open inference engine: cus
 
 | Repository | Description | Stars | Forks |
 |------------|-------------|-------|-------|
-| [**lucebox-hub**](https://github.com/Luce-Org/lucebox-hub) | Fast LLM speculative inference server for consumer hardware. DFlash + PFlash + Megakernel. OpenAI/Anthropic compatible HTTP server. | ![Stars](https://img.shields.io/github/stars/Luce-Org/lucebox-hub?style=flat-square&label=) | ![Forks](https://img.shields.io/github/forks/Luce-Org/lucebox-hub?style=flat-square&label=) |
-| [**llama.cpp-dflash-ggml**](https://github.com/Luce-Org/llama.cpp-dflash-ggml) | llama.cpp fork with DFlash speculative decode and ggml DDTree integration. Upstream-tracking. | ![Stars](https://img.shields.io/github/stars/Luce-Org/llama.cpp-dflash-ggml?style=flat-square&label=) | ![Forks](https://img.shields.io/github/forks/Luce-Org/llama.cpp-dflash-ggml?style=flat-square&label=) |
+| [**lucebox**](https://github.com/Luce-Org/lucebox-hub) | Fast LLM speculative inference server for consumer hardware. DFlash + PFlash + Megakernel. OpenAI/Anthropic compatible HTTP server. | ![Stars](https://img.shields.io/github/stars/Luce-Org/lucebox-hub?style=flat-square&label=) | ![Forks](https://img.shields.io/github/forks/Luce-Org/lucebox-hub?style=flat-square&label=) |
 
 ### Lucebox Inference Optimizations
 
@@ -78,7 +77,7 @@ Then point any OpenAI-compatible client at `http://localhost:8000/v1`.
 
 * **NVIDIA:** RTX 3090, RTX 4090, RTX 5090, RTX 2080 Ti (CUDA 12+)
 * **AMD:** Ryzen AI MAX+ 395 Strix Halo (HIP / ROCm 6+), RX 7900 XTX (HIP)
-* **OS (inference engine):** Linux, Windows
+* **OS (Inference engine):** Linux, Windows
 * **OS (Lucebox appliance):** Linux, pre-tuned
 
 ## Buy the Hardware
