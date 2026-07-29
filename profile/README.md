@@ -20,9 +20,9 @@
 
 ## What is Lucebox
 
-Lucebox is a 9.56L aluminum box that runs frontier open models locally at speeds people thought needed cloud GPUs. Inside: an RTX 3090 (24GB GDDR6X) paired with an AMD Ryzen AI MAX+ 395 APU (128GB unified LPDDR5X), 2TB NVMe, Corsair 1000W 80+ Gold. Outside: a single power cable and an OpenAI/Anthropic-compatible endpoint reachable from Claude Code, Codex, OpenCode, Hermes, OpenClaw, Open WebUI, and Ollama in roughly one minute from unboxing.
+Lucebox is a 9.56L aluminum box that runs frontier open models locally at speeds people thought needed cloud GPUs. Inside: an AMD Radeon™ AI PRO R9700 (32GB GDDR6) paired with an AMD Ryzen AI MAX+ 395 APU (128GB unified LPDDR5X), 2TB NVMe, Corsair 1000W 80+ Gold. Outside: a single power cable and an OpenAI/Anthropic-compatible endpoint reachable from Claude Code, Codex, OpenCode, Hermes, OpenClaw, Open WebUI, and Ollama in roughly one minute from unboxing.
 
-The speed comes from this org. **lucebox** is the open inference engine: custom CUDA kernels, speculative decoding (DFlash), speculative prefill compression (PFlash), and persistent megakernels. It runs on any RTX 30/40/50, on Strix Halo, and on Radeon 7900 XTX, not just on our hardware.
+**lucebox** is the open inference engine: custom CUDA kernels, speculative decoding (DFlash), speculative prefill compression (PFlash), and persistent megakernels. It runs on any RTX 30/40/50, on Strix Halo, Radeon 7900 XTX and Radeon AI PRO R9700 not just on our hardware.
 
 ## Why local
 
