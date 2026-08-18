@@ -84,7 +84,7 @@ Then point any OpenAI-compatible client at `http://localhost:8000/v1`.
 
 ## Buy the Hardware
 
-The plug-and-play Lucebox ships pre-tuned with the full stack loaded. $6,499, one year warranty, refurbished and fully serviced RTX 3090.
+The plug-and-play Lucebox ships pre-tuned with the full stack loaded. $6,499, three year warranty.
 
 → [**lucebox.com**](https://www.lucebox.com)
 
