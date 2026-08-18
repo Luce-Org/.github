@@ -22,7 +22,7 @@
 
 Lucebox is a 9.56L aluminum box that runs frontier open models locally at speeds people thought needed cloud GPUs. Inside: an AMD Radeon™ AI PRO R9700 (32GB GDDR6) paired with an AMD Ryzen AI MAX+ 395 APU (128GB unified LPDDR5X), 2TB NVMe, Corsair 1000W 80+ Gold. Outside: a single power cable and an OpenAI/Anthropic-compatible endpoint reachable from Claude Code, Codex, OpenCode, Hermes, OpenClaw, Open WebUI, and Ollama in roughly one minute from unboxing.
 
-**lucebox** is the open inference engine: custom CUDA kernels, speculative decoding (DFlash), speculative prefill compression (PFlash), and persistent megakernels. It runs on any RTX 30/40/50, on Strix Halo, Radeon 7900 XTX and Radeon AI PRO R9700 not just on our hardware.
+**lucebox** is the open inference engine with custom high performance optimizations. It runs on any RTX 30/40/50, on Strix Halo, Radeon 7900 XTX and Radeon AI PRO R9700 not just on our hardware.
 
 ## Why local
 
@@ -37,7 +37,7 @@ Lucebox is a 9.56L aluminum box that runs frontier open models locally at speeds
 
 | Repository | Description | Stars | Forks |
 |------------|-------------|-------|-------|
-| [**lucebox**](https://github.com/Luce-Org/lucebox-hub) | Fast LLM speculative inference server for consumer hardware. DFlash + PFlash + Megakernel. OpenAI/Anthropic compatible HTTP server. | ![Stars](https://img.shields.io/github/stars/Luce-Org/lucebox-hub?style=flat-square&label=) | ![Forks](https://img.shields.io/github/forks/Luce-Org/lucebox-hub?style=flat-square&label=) |
+| [**lucebox**](https://github.com/Luce-Org/lucebox-hub) | Fast LLM speculative inference server for consumer hardware. OpenAI/Anthropic compatible HTTP server. | ![Stars](https://img.shields.io/github/stars/Luce-Org/lucebox-hub?style=flat-square&label=) | ![Forks](https://img.shields.io/github/forks/Luce-Org/lucebox-hub?style=flat-square&label=) |
 
 ### Lucebox Inference Optimizations
 
@@ -45,6 +45,8 @@ Lucebox is a 9.56L aluminum box that runs frontier open models locally at speeds
 |-----------|--------------|---------|
 | **DFlash** | Speculative decode with draft model + tree verification (DDTree) | 3 to 5x on 27B |
 | **PFlash** | Block-sparse speculative prefill, register-resident FA-2 kernels | ~5.6x on long context, 5.4x at 128K |
+| **KVFlash** | Auto-sized active pool of KV cache on the GPU and paging cold 64-token chunks dynamically | 256k context |
+| **Spark** | Dynamic Expert Pinning, only hot experts directly inside the GPU VRAM | 1.5x tok/s |
 | **Megakernel** | Fused 24-layer persistent CUDA kernel for small drafts | ~2x on 0.8B (413 tok/s) |
 
 ## Quick Start
@@ -75,14 +77,14 @@ Then point any OpenAI-compatible client at `http://localhost:8000/v1`.
 
 ## Supported Hardware
 
-* **NVIDIA:** RTX 3090, RTX 4090, RTX 5090, RTX 2080 Ti (CUDA 12+)
+* **NVIDIA:** RTX 3090, RTX 4090, RTX 5090, DGX Spark (CUDA 12+)
 * **AMD:** Ryzen AI MAX+ 395 Strix Halo (HIP / ROCm 6+), RX 7900 XTX (HIP)
 * **OS (Inference engine):** Linux, Windows
 * **OS (Lucebox appliance):** Linux, pre-tuned
 
 ## Buy the Hardware
 
-The plug-and-play Lucebox ships pre-tuned with the full stack loaded. $4,900, one year warranty, refurbished and fully serviced RTX 3090.
+The plug-and-play Lucebox ships pre-tuned with the full stack loaded. $6,499, one year warranty, refurbished and fully serviced RTX 3090.
 
 → [**lucebox.com**](https://www.lucebox.com)
 
