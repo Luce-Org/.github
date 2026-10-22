@@ -1,5 +1,8 @@
 <div align="center">
-  <img src="https://www.lucebox.com/lucebox-logo.png" alt="Lucebox" width="160" />
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://www.lucebox.com/ds/logo-mark-white.png" />
+    <img src="https://www.lucebox.com/ds/logo-mark.png" alt="Lucebox" width="160" />
+  </picture>
 
   <h3>Your Inference Workstation</h3>
 
